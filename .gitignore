@@ -3,3 +3,6 @@
 ################################################################################
 
 /EntityModel/bin/Debug/net5.0
+/EntityModel/obj
+/FirstEFCoreSample/obj
+/FirstEFCoreSample/bin/Debug/net5.0
