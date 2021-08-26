@@ -3,9 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31605.320
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FirstEFCoreSample", "FirstEFCoreSample\FirstEFCoreSample.csproj", "{8E7CDBC7-2FBF-49C1-8717-CE26FE0D69A6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FirstEFCoreSample", "FirstEFCoreSample\FirstEFCoreSample.csproj", "{8E7CDBC7-2FBF-49C1-8717-CE26FE0D69A6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EntityModel", "EntityModel\EntityModel.csproj", "{BCFAC5B2-F69D-42E2-A95E-EF07062CB703}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EntityModel", "EntityModel\EntityModel.csproj", "{BCFAC5B2-F69D-42E2-A95E-EF07062CB703}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HL7Demo", "HL7Demo\HL7Demo.csproj", "{03717EE3-27BC-4DFC-993D-D80AB86BF335}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HL7-dotnetcore", "HL7-dotnetcore-master\src\HL7-dotnetcore.csproj", "{F8D84108-89A1-439B-96C6-9B28493C0EBB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +25,14 @@ Global
 		{BCFAC5B2-F69D-42E2-A95E-EF07062CB703}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BCFAC5B2-F69D-42E2-A95E-EF07062CB703}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BCFAC5B2-F69D-42E2-A95E-EF07062CB703}.Release|Any CPU.Build.0 = Release|Any CPU
+		{03717EE3-27BC-4DFC-993D-D80AB86BF335}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{03717EE3-27BC-4DFC-993D-D80AB86BF335}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{03717EE3-27BC-4DFC-993D-D80AB86BF335}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{03717EE3-27BC-4DFC-993D-D80AB86BF335}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F8D84108-89A1-439B-96C6-9B28493C0EBB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F8D84108-89A1-439B-96C6-9B28493C0EBB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F8D84108-89A1-439B-96C6-9B28493C0EBB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F8D84108-89A1-439B-96C6-9B28493C0EBB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
