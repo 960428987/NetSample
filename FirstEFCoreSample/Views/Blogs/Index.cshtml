@@ -1,4 +1,4 @@
-﻿@model IEnumerable<EntityModel.User>
+﻿@model IEnumerable<EntityModel.Blog>
 
 @{
     ViewData["Title"] = "Index";
@@ -13,17 +13,19 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.UserName)
+                @Html.DisplayNameFor(model => model.BrowseTimes)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Password)
+                @Html.DisplayNameFor(model => model.Url)
             </th>
             <th>
-                @*@Html.DisplayNameFor(model => model.CreateTime)*@
-                创建时间
+                @Html.DisplayNameFor(model => model.Auth)
             </th>
             <th>
-              操作
+                @Html.DisplayNameFor(model => model.CreateTime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LastUpdateTime)
             </th>
             <th></th>
         </tr>
@@ -32,13 +34,19 @@
 @foreach (var item in Model) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.UserName)
+                @Html.DisplayFor(modelItem => item.BrowseTimes)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Password)
+                @Html.DisplayFor(modelItem => item.Url)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Auth)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.CreateTime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LastUpdateTime)
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |

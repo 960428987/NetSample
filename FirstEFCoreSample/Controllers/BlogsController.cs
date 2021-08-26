@@ -6,39 +6,25 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using EntityModel;
-using Microsoft.Extensions.DependencyInjection;
 
 namespace FirstEFCoreSample.Controllers
 {
-    public class UsersController : Controller
+    public class BlogsController : Controller
     {
         private readonly BlogDbContext _context;
 
-        public UsersController(BlogDbContext context)
+        public BlogsController(BlogDbContext context)
         {
             _context = context;
         }
 
-        // GET: Users
+        // GET: Blogs
         public async Task<IActionResult> Index()
         {
-            //var s  = _context.Users.ToList();
-            /*
-             用依赖注入的方式使用dbcontext时
-            1.可以用下面的方式来获取到context，var context2 = HttpContext.RequestServices.GetService<BlogDbContext>()
-            这种方式需要引用Microsoft.Extensions.DependencyInjection;
-            2.也可以拿到dbcontext的选项 HttpContext.RequestServices.GetService<DbContextOptions<BlogDbContext>>();
-             */
-            //using (var context2 = HttpContext.RequestServices.GetService<BlogDbContext>())
-            //{
-            //    var userList = context2.Users.ToList();
-            //}
-            //var options = HttpContext.RequestServices.GetService<DbContextOptions<BlogDbContext>>();//获取dbcontext的选项
-
-            return View(await _context.Users.ToListAsync());
+            return View(await _context.Blogs.ToListAsync());
         }
 
-        // GET: Users/Details/5
+        // GET: Blogs/Details/5
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -46,37 +32,39 @@ namespace FirstEFCoreSample.Controllers
                 return NotFound();
             }
 
-            var user = await _context.Users
+            var blog = await _context.Blogs
                 .FirstOrDefaultAsync(m => m.Id == id);
-            if (user == null)
+            if (blog == null)
             {
                 return NotFound();
             }
 
-            return View(user);
+            return View(blog);
         }
 
-        // GET: Users/Create
+        // GET: Blogs/Create
         public IActionResult Create()
         {
             return View();
         }
 
-        // POST: Users/Create
+        // POST: Blogs/Create
+        // To protect from overposting attacks, enable the specific properties you want to bind to.
+        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,UserName,Password")] User user)
+        public async Task<IActionResult> Create([Bind("Id,BrowseTimes,Url,Auth,CreateTime,LastUpdateTime")] Blog blog)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(user);
+                _context.Add(blog);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(user);
+            return View(blog);
         }
 
-        // GET: Users/Edit/5
+        // GET: Blogs/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -84,20 +72,22 @@ namespace FirstEFCoreSample.Controllers
                 return NotFound();
             }
 
-            var user = await _context.Users.FindAsync(id);
-            if (user == null)
+            var blog = await _context.Blogs.FindAsync(id);
+            if (blog == null)
             {
                 return NotFound();
             }
-            return View(user);
+            return View(blog);
         }
 
-        // POST: Users/Edit/5
+        // POST: Blogs/Edit/5
+        // To protect from overposting attacks, enable the specific properties you want to bind to.
+        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,UserName,Password")] User user)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,BrowseTimes,Url,Auth,CreateTime,LastUpdateTime")] Blog blog)
         {
-            if (id != user.Id)
+            if (id != blog.Id)
             {
                 return NotFound();
             }
@@ -106,12 +96,12 @@ namespace FirstEFCoreSample.Controllers
             {
                 try
                 {
-                    _context.Update(user);
+                    _context.Update(blog);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!UserExists(user.Id))
+                    if (!BlogExists(blog.Id))
                     {
                         return NotFound();
                     }
@@ -122,10 +112,10 @@ namespace FirstEFCoreSample.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(user);
+            return View(blog);
         }
 
-        // GET: Users/Delete/5
+        // GET: Blogs/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -133,31 +123,30 @@ namespace FirstEFCoreSample.Controllers
                 return NotFound();
             }
 
-            var user = await _context.Users
+            var blog = await _context.Blogs
                 .FirstOrDefaultAsync(m => m.Id == id);
-            if (user == null)
+            if (blog == null)
             {
                 return NotFound();
             }
 
-            return View(user);
+            return View(blog);
         }
 
-        // POST: Users/Delete/5
+        // POST: Blogs/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-
-            var user = await _context.Users.FindAsync(id);
-            _context.Users.Remove(user);
+            var blog = await _context.Blogs.FindAsync(id);
+            _context.Blogs.Remove(blog);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
-        private bool UserExists(int id)
+        private bool BlogExists(int id)
         {
-            return _context.Users.Any(e => e.Id == id);
+            return _context.Blogs.Any(e => e.Id == id);
         }
     }
 }

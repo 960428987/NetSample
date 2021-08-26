@@ -1,0 +1,15 @@
+C:\Work\Learn\Net\NetSample\Helper\bin\Debug\net5.0\Helper.deps.json
+C:\Work\Learn\Net\NetSample\Helper\bin\Debug\net5.0\Helper.dll
+C:\Work\Learn\Net\NetSample\Helper\bin\Debug\net5.0\ref\Helper.dll
+C:\Work\Learn\Net\NetSample\Helper\bin\Debug\net5.0\Helper.pdb
+C:\Work\Learn\Net\NetSample\Helper\bin\Debug\net5.0\EntityModel.dll
+C:\Work\Learn\Net\NetSample\Helper\bin\Debug\net5.0\EntityModel.pdb
+C:\Work\Learn\Net\NetSample\Helper\obj\Debug\net5.0\Helper.csproj.AssemblyReference.cache
+C:\Work\Learn\Net\NetSample\Helper\obj\Debug\net5.0\Helper.GeneratedMSBuildEditorConfig.editorconfig
+C:\Work\Learn\Net\NetSample\Helper\obj\Debug\net5.0\Helper.AssemblyInfoInputs.cache
+C:\Work\Learn\Net\NetSample\Helper\obj\Debug\net5.0\Helper.AssemblyInfo.cs
+C:\Work\Learn\Net\NetSample\Helper\obj\Debug\net5.0\Helper.csproj.CoreCompileInputs.cache
+C:\Work\Learn\Net\NetSample\Helper\obj\Debug\net5.0\Helper.csproj.CopyComplete
+C:\Work\Learn\Net\NetSample\Helper\obj\Debug\net5.0\Helper.dll
+C:\Work\Learn\Net\NetSample\Helper\obj\Debug\net5.0\ref\Helper.dll
+C:\Work\Learn\Net\NetSample\Helper\obj\Debug\net5.0\Helper.pdb

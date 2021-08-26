@@ -10,6 +10,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using EntityModel;
+using Helper;
 
 namespace FirstEFCoreSample
 {
@@ -22,14 +23,18 @@ namespace FirstEFCoreSample
 
         public IConfiguration Configuration { get; }
 
-        // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<BlogDbContext>(options=>options.UseMySql(Configuration.GetConnectionString("blog_db"),ServerVersion.Parse("5.7.31-mysql")));
             services.AddControllersWithViews();
+            TestService(services);
         }
-
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+        public void TestService(IServiceCollection services)
+        {
+            var service = services.BuildServiceProvider();//将服务集合build一下，然后注入到TestHelper，
+            var instance = ActivatorUtilities.CreateInstance<TestHelper>(service);//通过ActivatorUtilities相当于反射获取到TestHelper类
+            instance.RunTest();
+        }
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())
