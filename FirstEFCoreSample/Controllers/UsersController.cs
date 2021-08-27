@@ -29,11 +29,11 @@ namespace FirstEFCoreSample.Controllers
             这种方式需要引用Microsoft.Extensions.DependencyInjection;
             2.也可以拿到dbcontext的选项 HttpContext.RequestServices.GetService<DbContextOptions<BlogDbContext>>();
              */
-            //using (var context2 = HttpContext.RequestServices.GetService<BlogDbContext>())
-            //{
-            //    var userList = context2.Users.ToList();
-            //}
-            //var options = HttpContext.RequestServices.GetService<DbContextOptions<BlogDbContext>>();//获取dbcontext的选项
+            using (var context2 = HttpContext.RequestServices.GetService<BlogDbContext>())
+            {
+                var userList = context2.Users.ToList();
+            }
+            var options = HttpContext.RequestServices.GetService<DbContextOptions<BlogDbContext>>();//获取dbcontext的选项
 
             return View(await _context.Users.ToListAsync());
         }

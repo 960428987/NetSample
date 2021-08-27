@@ -27,6 +27,7 @@ namespace FirstEFCoreSample
         {
             services.AddDbContext<BlogDbContext>(options=>options.UseMySql(Configuration.GetConnectionString("blog_db"),ServerVersion.Parse("5.7.31-mysql")));
             services.AddControllersWithViews();
+           
             TestService(services);
         }
         public void TestService(IServiceCollection services)
@@ -34,6 +35,10 @@ namespace FirstEFCoreSample
             var service = services.BuildServiceProvider();//将服务集合build一下，然后注入到TestHelper，
             var instance = ActivatorUtilities.CreateInstance<TestHelper>(service);//通过ActivatorUtilities相当于反射获取到TestHelper类
             instance.RunTest();
+
+            SeedData seedData = new SeedData(service.GetService<BlogDbContext>());
+            seedData.InitializeData();
+
         }
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {

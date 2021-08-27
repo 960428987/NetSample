@@ -14,6 +14,9 @@ namespace EntityModel
 
         public string Content { get; set; }
 
+        public User Author { get; set; }
+        public User Contributor { get; set; }
+
         public virtual Blog Blog { get; set; }
     }
 }

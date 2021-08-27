@@ -7,11 +7,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FirstEFCoreSample", "FirstE
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EntityModel", "EntityModel\EntityModel.csproj", "{BCFAC5B2-F69D-42E2-A95E-EF07062CB703}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HL7Demo", "HL7Demo\HL7Demo.csproj", "{03717EE3-27BC-4DFC-993D-D80AB86BF335}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HL7Demo", "HL7Demo\HL7Demo.csproj", "{03717EE3-27BC-4DFC-993D-D80AB86BF335}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HL7-dotnetcore", "HL7-dotnetcore-master\src\HL7-dotnetcore.csproj", "{F8D84108-89A1-439B-96C6-9B28493C0EBB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Helper", "Helper\Helper.csproj", "{6429804A-C485-4C7D-AA4B-6BD680D95499}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Helper", "Helper\Helper.csproj", "{6429804A-C485-4C7D-AA4B-6BD680D95499}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScaffMode", "ScaffMode\ScaffMode.csproj", "{42DB29F1-75CB-4710-BBCB-CE3576298E55}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{6429804A-C485-4C7D-AA4B-6BD680D95499}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6429804A-C485-4C7D-AA4B-6BD680D95499}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6429804A-C485-4C7D-AA4B-6BD680D95499}.Release|Any CPU.Build.0 = Release|Any CPU
+		{42DB29F1-75CB-4710-BBCB-CE3576298E55}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{42DB29F1-75CB-4710-BBCB-CE3576298E55}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{42DB29F1-75CB-4710-BBCB-CE3576298E55}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{42DB29F1-75CB-4710-BBCB-CE3576298E55}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -38,8 +38,11 @@ namespace EntityModel
                 entity.HasKey(e=>e.Bid);
                 entity.Property(e => e.CreateTime).ValueGeneratedOnAdd();//自动生成当前时间
             });
+            modelBuilder.Entity<Post>().HasOne(p => p.Author).WithMany(u => u.AuthoredPost).HasForeignKey("user_id_author");
+            modelBuilder.Entity<Post>().HasOne(p => p.Contributor).WithMany(u => u.ContributedToPosts);
+          
             //在进行数据库迁移时会初始化到数据库
-            modelBuilder.Entity<User>().HasData(new User() { Id = 1,UserName = "admin",Password = "123"}, new User() { Id = 2, UserName = "admin2", Password = "123" });
+            //modelBuilder.Entity<User>().HasData(new User() { Id = 1,UserName = "admin",Password = "123"}, new User() { Id = 2, UserName = "admin2", Password = "123" });
         }
     }
 }
