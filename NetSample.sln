@@ -13,7 +13,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HL7-dotnetcore", "HL7-dotne
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Helper", "Helper\Helper.csproj", "{6429804A-C485-4C7D-AA4B-6BD680D95499}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScaffMode", "ScaffMode\ScaffMode.csproj", "{42DB29F1-75CB-4710-BBCB-CE3576298E55}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ScaffMode", "ScaffMode\ScaffMode.csproj", "{42DB29F1-75CB-4710-BBCB-CE3576298E55}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestForm", "TestForm\TestForm.csproj", "{38372DBC-D1B3-4777-B62E-6E5E4B9B9ED6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WinFormsApp1", "WinFormsApp1\WinFormsApp1.csproj", "{4F068AF5-8DD7-4216-B209-FCDDED075E7B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +49,14 @@ Global
 		{42DB29F1-75CB-4710-BBCB-CE3576298E55}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{42DB29F1-75CB-4710-BBCB-CE3576298E55}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{42DB29F1-75CB-4710-BBCB-CE3576298E55}.Release|Any CPU.Build.0 = Release|Any CPU
+		{38372DBC-D1B3-4777-B62E-6E5E4B9B9ED6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{38372DBC-D1B3-4777-B62E-6E5E4B9B9ED6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{38372DBC-D1B3-4777-B62E-6E5E4B9B9ED6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{38372DBC-D1B3-4777-B62E-6E5E4B9B9ED6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4F068AF5-8DD7-4216-B209-FCDDED075E7B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4F068AF5-8DD7-4216-B209-FCDDED075E7B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4F068AF5-8DD7-4216-B209-FCDDED075E7B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4F068AF5-8DD7-4216-B209-FCDDED075E7B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

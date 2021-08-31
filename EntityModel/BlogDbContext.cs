@@ -40,7 +40,7 @@ namespace EntityModel
             });
             modelBuilder.Entity<Post>().HasOne(p => p.Author).WithMany(u => u.AuthoredPost).HasForeignKey("user_id_author");
             modelBuilder.Entity<Post>().HasOne(p => p.Contributor).WithMany(u => u.ContributedToPosts);
-          
+            modelBuilder.Entity<Post>().HasOne(p => p.Blog).WithMany(u => u.Posts).HasForeignKey(p => p.BlogUrl).HasPrincipalKey(b=>b.Url);
             //在进行数据库迁移时会初始化到数据库
             //modelBuilder.Entity<User>().HasData(new User() { Id = 1,UserName = "admin",Password = "123"}, new User() { Id = 2, UserName = "admin2", Password = "123" });
         }

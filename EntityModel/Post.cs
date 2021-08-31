@@ -12,6 +12,8 @@ namespace EntityModel
         public int BlogId { get; set; }
         public string Title { get; set; }
 
+        public string BlogUrl { get; set; }
+
         public string Content { get; set; }
 
         public User Author { get; set; }

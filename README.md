@@ -1,36 +1,68 @@
 # NetSample
 
-## 集合自己开发过程中的一些示例代码
+## 集合自己开发过程中的一些示例代码，用以笔记和学习
 
-Markdown is a plain text formatting syntax.
+## EFCore 笔记
 
-Paragraphs are separated by empty lines.
+### dbcontext使用
+用依赖注入的方式使用dbcontext时，有时有的类不能使用注入的方式，但需要用到dbcontext时，可以用下面的方式获取到dbcontext和options，这里需要引Microsoft.Extensions.DependencyInjection;
 
-## Heading 2
+     using (var context = HttpContext.RequestServices.GetService<BlogDbContext>())
+            {
+                var userList = context2.Users.ToList();
+            }
+            var options = HttpContext.RequestServices.GetService<DbContextOptions<BlogDbContext>>();//获取dbcontext的选项
 
-### Heading 3
+context就可以用来操作数据库了，
 
-#### Heading 4
+### 服务注入
+     public void ConfigureServices(IServiceCollection services)
+        {
+            services.AddDbContext<BlogDbContext>(options=>options.UseMySql(Configuration.GetConnectionString("blog_db"),ServerVersion.Parse("5.7.31-mysql")));
+            services.AddControllersWithViews();
+            TestService(services);
+        }
+        public void TestService(IServiceCollection services)
+        {
+            var service = services.BuildServiceProvider();//将服务集合build一下，然后注入到TestHelper，
+            var instance = ActivatorUtilities.CreateInstance<TestHelper>(service);//通过ActivatorUtilities相当于反射获取到TestHelper类
+            instance.RunTest();
+        }
 
-##### Heading 5
+TestClass
 
-###### Heading 6
+     public class TestHelper
+    {
+        private readonly BlogDbContext _context;
+        private readonly ILogger<TestHelper> _logger;
+        public TestHelper(BlogDbContext blogDbContext, ILogger<TestHelper> logger)
+        {
+            _context = blogDbContext;
+            _logger = logger;
+        }
 
-## Character Styles
+        public void RunTest()
+        {
+           var s = _context.Users.ToList();
+            _logger.LogInformation(s.Count().ToString());
+        }
+    }
 
-These spans result in 'em' tags:
+### 并发冲突与令牌
 
-- *single asterisks*
-- _single underscores_
+并发分悲观并发和乐观并发。
 
-These spans result in 'strong' tags:
+悲观并发：比如有两个用户A,B，同时登录系统修改一个文档，如果A先进入修改，则系统会把该文档 锁住，B就没办法打开了，只有等A修改完，完全退出的时候B才能进入修改。
 
-- **double asterisks**
-- __double underscores__
+乐观并发：同上面的例子，A,B两个用户同时登录，如果A先进入修改紧跟着B也进入了。A修改文档的 同时B也在修改。如果在A保存之后B再保存他的修改，此时系统检测到数据库中文档记录与B刚进入时 不一致，B保存时会抛出异常，修改失败。
 
-These spans result in 'del' tags:
+Entity Framework Core 不支持悲观并发，只支持乐观并发
 
-- ~~double tildes~~
+![](http://bpic.588ku.com/element_origin_min_pic/16/10/29/2ac8e99273bc079e40a8dc079ca11b1f.jpg)
+
+![](https://raw.githubusercontent.com/960428987/Images/master/resource/1.png)
+
+![](https://raw.githubusercontent.com/960428987/Images/master/resource/2.jpg)
 
 ## Links and Images
 

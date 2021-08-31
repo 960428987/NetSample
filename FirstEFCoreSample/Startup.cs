@@ -28,7 +28,7 @@ namespace FirstEFCoreSample
             services.AddDbContext<BlogDbContext>(options=>options.UseMySql(Configuration.GetConnectionString("blog_db"),ServerVersion.Parse("5.7.31-mysql")));
             services.AddControllersWithViews();
            
-            TestService(services);
+            //TestService(services);
         }
         public void TestService(IServiceCollection services)
         {

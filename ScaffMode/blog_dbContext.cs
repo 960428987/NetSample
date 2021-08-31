@@ -19,16 +19,15 @@ namespace ScaffMode
 
         public virtual DbSet<Blog> Blogs { get; set; }
         public virtual DbSet<BookT> BookTs { get; set; }
-        public virtual DbSet<Efmigrationshistory> Efmigrationshistories { get; set; }
         public virtual DbSet<Post> Posts { get; set; }
+        public virtual DbSet<StudentT> StudentTs { get; set; }
         public virtual DbSet<User> Users { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (!optionsBuilder.IsConfigured)
             {
-#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
-                optionsBuilder.UseMySql("server=127.0.0.1;port=3306;database=blog_db;user=root;password=root@123", Microsoft.EntityFrameworkCore.ServerVersion.Parse("8.0.20-mysql"));
+                optionsBuilder.UseMySql("name=blog_db", Microsoft.EntityFrameworkCore.ServerVersion.Parse("8.0.20-mysql"));
             }
         }
 
@@ -74,20 +73,6 @@ namespace ScaffMode
                     .HasDefaultValueSql("CURRENT_TIMESTAMP(6)");
             });
 
-            modelBuilder.Entity<Efmigrationshistory>(entity =>
-            {
-                entity.HasKey(e => e.MigrationId)
-                    .HasName("PRIMARY");
-
-                entity.ToTable("__efmigrationshistory");
-
-                entity.Property(e => e.MigrationId).HasMaxLength(150);
-
-                entity.Property(e => e.ProductVersion)
-                    .IsRequired()
-                    .HasMaxLength(32);
-            });
-
             modelBuilder.Entity<Post>(entity =>
             {
                 entity.ToTable("posts");
@@ -114,6 +99,30 @@ namespace ScaffMode
                     .WithMany(p => p.PostUserIdAuthorNavigations)
                     .HasForeignKey(d => d.UserIdAuthor)
                     .HasConstraintName("FK_Posts_Users_user_id_author");
+            });
+
+            modelBuilder.Entity<StudentT>(entity =>
+            {
+                entity.HasKey(e => e.Sid)
+                    .HasName("PRIMARY");
+
+                entity.ToTable("student_t");
+
+                entity.HasCharSet("utf8")
+                    .UseCollation("utf8_bin");
+
+                entity.HasIndex(e => e.Code, "code_UNIQUE")
+                    .IsUnique();
+
+                entity.Property(e => e.Sid).HasColumnName("sid");
+
+                entity.Property(e => e.Code)
+                    .HasMaxLength(45)
+                    .HasColumnName("code");
+
+                entity.Property(e => e.Name)
+                    .HasMaxLength(45)
+                    .HasColumnName("name");
             });
 
             modelBuilder.Entity<User>(entity =>

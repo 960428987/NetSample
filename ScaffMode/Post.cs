@@ -14,6 +14,8 @@ namespace ScaffMode
         public int? UserIdAuthor { get; set; }
         public int? ContributorId { get; set; }
 
+        public string BlogUrl { get; set; }
+
         public virtual Blog Blog { get; set; }
         public virtual User Contributor { get; set; }
         public virtual User UserIdAuthorNavigation { get; set; }
